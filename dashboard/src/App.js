@@ -1,19 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   AppBar,
   Toolbar,
-  IconButton,
   Typography,
-  Button
 } from '@material-ui/core';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
-import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles } from '@material-ui/core/styles';
 
+import MenuDrawer from './components/MenuDrawer'
 import PatientDashboard from './pages/PatientDashboard';
 import DoctorDashboard from './pages/DoctorDashboard';
 
@@ -44,10 +42,8 @@ export default function App(props) {
       <Router>
         <AppBar className={classes.appBar}>
           <Toolbar>
-            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" className={classes.title} onClick={() => { window.location.assign('/') }}>
+            <MenuDrawer />
+            <Typography variant='h6' className={classes.title} onClick={() => { window.location.assign('/') }}>
               Davita
           </Typography>
           </Toolbar>
@@ -55,8 +51,8 @@ export default function App(props) {
         <Toolbar />
         <div className={classes.body}>
           <Switch>
-            <Route exact path={["/", "/patient"]} component={PatientDashboard} />
-            <Route exact path="/doctor" component={DoctorDashboard} />
+            <Route exact path={['/', '/patient']} component={PatientDashboard} />
+            <Route exact path='/doctor' component={DoctorDashboard} />
           </Switch>
         </div>
       </Router>

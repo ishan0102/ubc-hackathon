@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
+import {
+  Typography,
+  Button
+} from '@material-ui/core';
 
-import Weight from '../graphs/WeightGraph';
-import BPGraph from '../graphs/BPGraph';
-import HeartBPMGraph from '../graphs/HeartBPMGraph';
-import NutritionGraph from '../graphs/NutritionGraph';
+import Graphs from '../graphs/Graphs';
 
 export default function DoctorDashboard(props) {
   return( 
     <div>
-      <h1>Hello World</h1>
+      <Typography variant='h2'>Doctor Dashboard</Typography>
+      <Graphs />
     </div>
   )
 }

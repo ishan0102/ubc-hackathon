@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import {
+  Typography,
+  Button
+} from '@material-ui/core';
 
 export default function HeartBPMGraph(props) {
   return( 
     <div>
-      <h1>Hello World</h1>
+      <Typography variant='h6'>Heart BPM</Typography>
     </div>
   )
 }
