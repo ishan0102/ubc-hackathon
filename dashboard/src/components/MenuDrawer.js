@@ -7,13 +7,9 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import MenuIcon from '@material-ui/icons/Menu';
-import ListAltOutlinedIcon from '@material-ui/icons/ListAltOutlined';
-import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined';
-import DescriptionOutlinedIcon from '@material-ui/icons/DescriptionOutlined';
-import SchoolOutlinedIcon from '@material-ui/icons/SchoolOutlined';
+import PersonIcon from '@material-ui/icons/Person';
+import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 
 const useStyles = makeStyles({
   list: {
@@ -54,21 +50,13 @@ export default function MenuDrawer() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        <ListItem button key={'todo'} onClick={() => { window.location.assign('/todo') }}>
-          <ListItemIcon>{<ListAltOutlinedIcon />}</ListItemIcon>
-          <ListItemText primary={'To-do'} />
+        <ListItem button key={'patient'} onClick={() => { window.location.assign('/patient') }}>
+          <ListItemIcon>{<PersonIcon />}</ListItemIcon>
+          <ListItemText primary={'Patient Dashboard'} />
         </ListItem>
-        <ListItem button key={'email'} onClick={() => { window.location.assign('/email') }}>
-          <ListItemIcon>{<EmailOutlinedIcon />}</ListItemIcon>
-          <ListItemText primary={'Email'} />
-        </ListItem>
-        <ListItem button key={'docs'} onClick={() => { window.location.assign('/summarizer') }}>
-          <ListItemIcon>{<DescriptionOutlinedIcon />}</ListItemIcon>
-          <ListItemText primary={'Summarizer'} />
-        </ListItem>
-        <ListItem button key={'grades'} onClick={() => { window.location.assign('/grades') }}>
-          <ListItemIcon>{<SchoolOutlinedIcon />}</ListItemIcon>
-          <ListItemText primary={'Grades'} />
+        <ListItem button key={'doctor'} onClick={() => { window.location.assign('/doctor') }}>
+          <ListItemIcon>{<LocalHospitalIcon />}</ListItemIcon>
+          <ListItemText primary={'Doctor Dashboard'} />
         </ListItem>
       </List>
     </div>
