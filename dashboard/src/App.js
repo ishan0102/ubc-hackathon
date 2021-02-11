@@ -3,6 +3,7 @@ import {
   AppBar,
   Toolbar,
   Typography,
+  IconButton
 } from '@material-ui/core';
 import {
   BrowserRouter as Router,
@@ -12,6 +13,7 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 
 import MenuDrawer from './components/MenuDrawer'
+import NotificationsMenu from './components/NotificationsMenu'
 import PatientDashboard from './pages/PatientDashboard';
 import DoctorDashboard from './pages/DoctorDashboard';
 
@@ -45,7 +47,8 @@ export default function App(props) {
             <MenuDrawer />
             <Typography variant='h6' className={classes.title} onClick={() => { window.location.assign('/') }}>
               Davita
-          </Typography>
+            </Typography>
+            <NotificationsMenu />
           </Toolbar>
         </AppBar>
         <Toolbar />

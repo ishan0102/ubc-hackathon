@@ -25,7 +25,7 @@ const useStyles = makeStyles({
     },
   },
   content: {
-    height: '100%',
+    maxHeight: '50%',
     padding: '2rem',
     display: 'flex',
     flexDirection: 'column'
