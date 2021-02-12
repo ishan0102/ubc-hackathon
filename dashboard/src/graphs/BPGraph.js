@@ -36,27 +36,29 @@ export default function BPGraph(props) {
   }, []);
 
   useEffect(() => {
-    let lastSys = data[data.length - 1].systolic;
-    let lastDia = data[data.length - 1].diastolic;
-    const highSys = 190;
-    const lowSys = 110;
-    const highDia = 90;
-    const lowDia = 60;
-    if (lastSys > highSys) {
-      props.setOpen(true);
-      props.setMessage("Systolic BP too High!");
-    }
-    if (lastSys < lowSys) {
-      props.setOpen(true);
-      props.setMessage("Systolic BP too Low!");
-    }
-    if (lastDia > highDia) {
-      props.setOpen(true);
-      props.setMessage("Diastolic BP too High!");
-    }
-    if (lastDia < lowDia) {
-      props.setOpen(true);
-      props.setMessage("Diastolic BP too Low!");
+    if (props.notifications) {
+      let lastSys = data[data.length - 1].systolic;
+      let lastDia = data[data.length - 1].diastolic;
+      const highSys = 190;
+      const lowSys = 110;
+      const highDia = 90;
+      const lowDia = 60;
+      if (lastSys > highSys) {
+        props.setOpen(true);
+        props.setMessage("Systolic BP too High!");
+      }
+      if (lastSys < lowSys) {
+        props.setOpen(true);
+        props.setMessage("Systolic BP too Low!");
+      }
+      if (lastDia > highDia) {
+        props.setOpen(true);
+        props.setMessage("Diastolic BP too High!");
+      }
+      if (lastDia < lowDia) {
+        props.setOpen(true);
+        props.setMessage("Diastolic BP too Low!");
+      }
     }
   }, [data]);
 

@@ -8,6 +8,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import NotificationsOffIcon from '@material-ui/icons/NotificationsOff';
 import PersonIcon from '@material-ui/icons/Person';
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 
@@ -23,7 +24,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function NotificationsMenu() {
+export default function NotificationsMenu(props) {
   const classes = useStyles();
   const [state, setState] = React.useState({
     top: false,
@@ -74,7 +75,7 @@ export default function NotificationsMenu() {
     <div>
       <React.Fragment key={'right'}>
         <IconButton edge="start" className={classes.notifsIcon} color="inherit" aria-label="notifs">
-          <NotificationsIcon onClick={toggleDrawer('right', true)}/>
+          { props.notifications ? <NotificationsIcon onClick={() => {props.setNotifications(false)}} /> : <NotificationsOffIcon onClick={() => {props.setNotifications(true)}} /> }
         </IconButton>
         <Drawer anchor={'right'} open={state['right']} onClose={toggleDrawer('right', false)}>
           {list('right')}

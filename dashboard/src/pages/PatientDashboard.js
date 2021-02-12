@@ -10,7 +10,7 @@ export default function PatientDashboard(props) {
   return( 
     <div>
       <Typography variant='h2'>Patient Dashboard</Typography>
-      <Graphs />
+      <Graphs notifications={props.notifications} />
     </div>
   )
 }

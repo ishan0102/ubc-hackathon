@@ -35,16 +35,18 @@ export default function HeartBPMGraph(props) {
   }, []);
 
   useEffect(() => {
-    let last = data[data.length - 1].value;
-    const high = 100;
-    const low = 50;
-    if (last > high) {
-      props.setOpen(true);
-      props.setMessage("Heart Rate too High!");
-    }
-    if (last < low) {
-      props.setOpen(true);
-      props.setMessage("Heart Rate too Low!");
+    if (props.notifications) {
+      let last = data[data.length - 1].value;
+      const high = 100;
+      const low = 50;
+      if (last > high) {
+        props.setOpen(true);
+        props.setMessage("Heart Rate too High!");
+      }
+      if (last < low) {
+        props.setOpen(true);
+        props.setMessage("Heart Rate too Low!");
+      }
     }
   }, [data]);
 

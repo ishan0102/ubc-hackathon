@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   AppBar,
   Toolbar,
@@ -47,6 +47,7 @@ const theme = createMuiTheme({
 
 export default function App(props) {
   const classes = useStyles(props);
+  const [notifications, setNotifications] = useState(false);
 
   return (
     <ThemeProvider theme={theme}>
@@ -57,14 +58,18 @@ export default function App(props) {
             <Typography variant='h6' className={classes.title} onClick={() => { window.location.assign('/') }}>
               Davita
             </Typography>
-            <NotificationsMenu />
+            <NotificationsMenu notifications={notifications} setNotifications={setNotifications} />
           </Toolbar>
         </AppBar>
         <Toolbar />
         <div className={classes.body}>
           <Switch>
-            <Route exact path={['/', '/patient']} component={PatientDashboard} />
-            <Route exact path='/doctor' component={DoctorDashboard} />
+            <Route exact path={['/', '/patient']} render={(props) => (
+              <PatientDashboard {...props} notifications={notifications} />
+            )} />
+            <Route exact path='/doctor' render={(props) => (
+              <DoctorDashboard {...props} notifications={notifications} />
+            )} />
           </Switch>
         </div>
       </Router>

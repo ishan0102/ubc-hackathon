@@ -62,7 +62,7 @@ export default function Graphs(props) {
         <Grid item xs={cardSize["xs"]} sm={cardSize["sm"]} md={cardSize["md"]}>
           <Card className={classes.root}>
             <CardContent>
-              <BPGraph setOpen={setOpen} setMessage={setMessage} />
+              <BPGraph setOpen={setOpen} setMessage={setMessage} notifications={props.notifications} />
             </CardContent>
           </Card>
         </Grid>
@@ -70,7 +70,7 @@ export default function Graphs(props) {
         <Grid item xs={cardSize["xs"]} sm={cardSize["sm"]} md={cardSize["md"]}>
           <Card className={classes.root}>
             <CardContent>
-              <HeartBPMGraph setOpen={setOpen} setMessage={setMessage} />
+              <HeartBPMGraph setOpen={setOpen} setMessage={setMessage} notifications={props.notifications} />
             </CardContent>
           </Card>
         </Grid>
