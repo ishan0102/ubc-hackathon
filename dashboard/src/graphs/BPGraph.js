@@ -1,26 +1,45 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Title,
   ArgumentAxis,
   ValueAxis,
   Chart,
   LineSeries,
+  Legend,
 } from '@devexpress/dx-react-chart-material-ui';
 import { Paper, Typography } from '@material-ui/core';
 
+const generateData = (start, end, step) => {
+  const data = [];
+  for (let i = start; i < end; i += step) {
+    data.push({ systolic: randomPoint(100, 200), diastolic: randomPoint(50, 100), argument: `${i}:00`, i });
+  }
 
+  return data;
+}
 
-const data = [
-  { argument: 1, value: 10 },
-  { argument: 2, value: 20 },
-  { argument: 3, value: 30 },
-];
+const randomPoint = (start, end) => {
+  return ((Math.random() * 100) % (end-start)) + start;
+}
 
 export default function BPGraph(props) {  
+  const [data, setData] = useState(generateData(1, 24, 1));
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setData(state => ([
+        ...state.slice(1),
+        { systolic: randomPoint(100, 200), diastolic: randomPoint(50, 100), argument: `${(state[state.length - 1].i + 1) % 24}:00`, i: (state[state.length - 1].i + 1) % 24 }
+      ]));
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   return( 
     <Paper>
       <Chart
         data={data}
+        height={350}
       >
         <Title
           text="Blood Pressure (mmHg)"
@@ -28,7 +47,18 @@ export default function BPGraph(props) {
         <ArgumentAxis />
         <ValueAxis />
 
-        <LineSeries valueField="value" argumentField="argument" />
+        <LineSeries
+          name="Systolic"
+          valueField="systolic"
+          argumentField="argument"
+        />
+        <LineSeries
+          name="Diastolic"
+          valueField="diastolic"
+          argumentField="argument"
+        />
+
+        <Legend />
       </Chart>
       <Typography variant="h6">Time (hours)</Typography>
     </Paper>
