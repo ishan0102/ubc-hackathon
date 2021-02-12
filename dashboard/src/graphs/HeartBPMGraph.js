@@ -28,11 +28,25 @@ export default function HeartBPMGraph(props) {
     const interval = setInterval(() => {
       setData(state => ([
         ...state.slice(1),
-        { value: randomPoint(50, 100), argument: `${(state[state.length - 1].i + 1) % 24}:00`, i: (state[state.length - 1].i + 1) % 24 }
+        { value: randomPoint(40, 110), argument: `${(state[state.length - 1].i + 1) % 24}:00`, i: (state[state.length - 1].i + 1) % 24 }
       ]));
-    }, 1000);
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    let last = data[data.length - 1].value;
+    const high = 100;
+    const low = 50;
+    if (last > high) {
+      props.setOpen(true);
+      props.setMessage("Heart Rate too High!");
+    }
+    if (last < low) {
+      props.setOpen(true);
+      props.setMessage("Heart Rate too Low!");
+    }
+  }, [data]);
 
   return( 
     <Paper>

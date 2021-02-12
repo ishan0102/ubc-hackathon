@@ -5,7 +5,8 @@ import {
   CardContent,
   CardMedia,
   Typography,
-  Grid
+  Grid,
+  Snackbar,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -34,6 +35,8 @@ const useStyles = makeStyles({
 
 export default function Graphs(props) {
   const classes = useStyles(props);
+  const [open, setOpen] = useState(false);
+  const [message, setMessage] = useState('');
 
   const cardSize = {
     "xs": 12,
@@ -41,39 +44,52 @@ export default function Graphs(props) {
     "md": 6
   };
 
+  const handleClose = () => {
+    setOpen(false);
+  }
+
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={cardSize["xs"]} sm={cardSize["sm"]} md={cardSize["md"]}>
-        <Card className={classes.root}>
-          <CardContent>
-            <WeightGraph />
-          </CardContent>
-        </Card>
-      </Grid>
+    <div>
+      <Grid container spacing={2}>
+        <Grid item xs={cardSize["xs"]} sm={cardSize["sm"]} md={cardSize["md"]}>
+          <Card className={classes.root}>
+            <CardContent>
+              <WeightGraph />
+            </CardContent>
+          </Card>
+        </Grid>
 
-      <Grid item xs={cardSize["xs"]} sm={cardSize["sm"]} md={cardSize["md"]}>
-        <Card className={classes.root}>
-          <CardContent>
-            <BPGraph />
-          </CardContent>
-        </Card>
-      </Grid>
+        <Grid item xs={cardSize["xs"]} sm={cardSize["sm"]} md={cardSize["md"]}>
+          <Card className={classes.root}>
+            <CardContent>
+              <BPGraph setOpen={setOpen} setMessage={setMessage} />
+            </CardContent>
+          </Card>
+        </Grid>
 
-      <Grid item xs={cardSize["xs"]} sm={cardSize["sm"]} md={cardSize["md"]}>
-        <Card className={classes.root}>
-          <CardContent>
-            <HeartBPMGraph />
-          </CardContent>
-        </Card>
-      </Grid>
+        <Grid item xs={cardSize["xs"]} sm={cardSize["sm"]} md={cardSize["md"]}>
+          <Card className={classes.root}>
+            <CardContent>
+              <HeartBPMGraph setOpen={setOpen} setMessage={setMessage} />
+            </CardContent>
+          </Card>
+        </Grid>
 
-      <Grid item xs={cardSize["xs"]} sm={cardSize["sm"]} md={cardSize["md"]}>
-        <Card className={classes.root}>
-          <CardContent>
-            <NutritionGraph />
-          </CardContent>
-        </Card>
+        <Grid item xs={cardSize["xs"]} sm={cardSize["sm"]} md={cardSize["md"]}>
+          <Card className={classes.root}>
+            <CardContent>
+              <NutritionGraph />
+            </CardContent>
+          </Card>
+        </Grid>
       </Grid>
-    </Grid>
+      <Snackbar
+        autoHideDuration={6000}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+        open={open}
+        onClose={handleClose}
+        message={message}
+      />
+    </div>
   );
 }

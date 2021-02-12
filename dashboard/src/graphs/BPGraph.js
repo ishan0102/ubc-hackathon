@@ -31,9 +31,34 @@ export default function BPGraph(props) {
         ...state.slice(1),
         { systolic: randomPoint(100, 200), diastolic: randomPoint(50, 100), argument: `${(state[state.length - 1].i + 1) % 24}:00`, i: (state[state.length - 1].i + 1) % 24 }
       ]));
-    }, 1000);
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    let lastSys = data[data.length - 1].systolic;
+    let lastDia = data[data.length - 1].diastolic;
+    const highSys = 190;
+    const lowSys = 110;
+    const highDia = 90;
+    const lowDia = 60;
+    if (lastSys > highSys) {
+      props.setOpen(true);
+      props.setMessage("Systolic BP too High!");
+    }
+    if (lastSys < lowSys) {
+      props.setOpen(true);
+      props.setMessage("Systolic BP too Low!");
+    }
+    if (lastDia > highDia) {
+      props.setOpen(true);
+      props.setMessage("Diastolic BP too High!");
+    }
+    if (lastDia < lowDia) {
+      props.setOpen(true);
+      props.setMessage("Diastolic BP too Low!");
+    }
+  }, [data]);
 
   return( 
     <Paper>
