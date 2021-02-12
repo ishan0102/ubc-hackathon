@@ -7,25 +7,33 @@ import {
   LineSeries,
   Legend,
   ZoomAndPan,
+  PieSeries,
 } from '@devexpress/dx-react-chart-material-ui';
 import { Paper, Typography } from '@material-ui/core';
 
 const generateData = (start, end, step) => {
-  const data = [];
-  for (let i = start; i < end; i += step) {
-    var date = new Date();
-    date.setDate(date.getDate() + i);
-    data.push({
-      fat: randomPoint(0, 80),
-      saturates: randomPoint(0, 30),
-      carbs: randomPoint(240, 500),
-      sugar: randomPoint(70, 140),
-      protein: randomPoint(30, 70),
-      salt: randomPoint(0, 10),
-      argument: date.toLocaleDateString().substring(0, date.toLocaleDateString().length - 5),
-      i
-    });
-  }
+  const data = [
+    {group: 'Fat', area: randomPoint(0, 100)},
+    {group: 'Saturates', area: randomPoint(0, 100)},
+    {group: 'Carbs', area: randomPoint(0, 100)},
+    {group: 'Sugar', area: randomPoint(0, 100)},
+    {group: 'Protein', area: randomPoint(0, 100)},
+    {group: 'Salt', area: randomPoint(0, 100)},
+  ];
+  // for (let i = start; i < end; i += step) {
+  //   var date = new Date();
+  //   date.setDate(date.getDate() + i);
+  //   data.push({
+  //     fat: randomPoint(0, 80),
+  //     saturates: randomPoint(0, 30),
+  //     carbs: randomPoint(240, 500),
+  //     sugar: randomPoint(70, 140),
+  //     protein: randomPoint(30, 70),
+  //     salt: randomPoint(0, 10),
+  //     argument: date.toLocaleDateString().substring(0, date.toLocaleDateString().length - 5),
+  //     i
+  //   });
+  // }
 
   return data;
 }
@@ -46,45 +54,14 @@ export default function NutritionGraph(props) {
         <Title
           text="Nutrition (g)"
         />
-        <ArgumentAxis />
-        <ValueAxis />
 
-        <LineSeries
-          name="Fat"
-          valueField="fat"
-          argumentField="argument"
-        />
-        <LineSeries
-          name="Saturates"
-          valueField="saturates"
-          argumentField="argument"
-        />
-        <LineSeries
-          name="Carbs"
-          valueField="carbs"
-          argumentField="argument"
-        />
-        <LineSeries
-          name="Sugar"
-          valueField="sugar"
-          argumentField="argument"
-        />
-        <LineSeries
-          name="Protein"
-          valueField="protein"
-          argumentField="argument"
-        />
-        <LineSeries
-          name="Salt"
-          valueField="salt"
-          argumentField="argument"
-        />
+        <PieSeries
+          argumentField="group"
+          valueField="area"
+        />      
 
         <Legend />
-
-        <ZoomAndPan />
       </Chart>
-      <Typography variant="h6">Time (days)</Typography>
     </Paper>
   );
 }
