@@ -8,7 +8,7 @@ import {
   Grid,
   Snackbar,
 } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { createMuiTheme, makeStyles} from '@material-ui/core/styles';
 
 import WeightGraph from '../graphs/WeightGraph';
 import BPGraph from '../graphs/BPGraph';

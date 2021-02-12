@@ -10,7 +10,8 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import { makeStyles } from '@material-ui/core/styles';
+import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
+import { green } from '@material-ui/core/colors'
 
 import MenuDrawer from './components/MenuDrawer'
 import NotificationsMenu from './components/NotificationsMenu'
@@ -36,11 +37,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#044a3a',
+    },
+  },
+});
+
 export default function App(props) {
   const classes = useStyles(props);
 
   return (
-    <div>
+    <ThemeProvider theme={theme}>
       <Router>
         <AppBar className={classes.appBar}>
           <Toolbar>
@@ -59,6 +68,6 @@ export default function App(props) {
           </Switch>
         </div>
       </Router>
-    </div>
+    </ThemeProvider>
   );
 }
