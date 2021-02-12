@@ -6,10 +6,10 @@ import {
 
 import Graphs from '../graphs/Graphs';
 
-export default function PatientDashboard(props) {
+export default function ElliotKim(props) {
   return( 
     <div>
-      <Typography variant='h2'>Patient Dashboard</Typography>
+      <Typography variant='h2'>Elliot Kim</Typography>
       <Graphs notifications={props.notifications} />
     </div>
   )

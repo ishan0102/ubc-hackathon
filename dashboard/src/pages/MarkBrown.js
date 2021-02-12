@@ -6,11 +6,11 @@ import {
 
 import Graphs from '../graphs/Graphs';
 
-export default function DoctorDashboard(props) {
+export default function MarkBrown(props) {
   return( 
     <div>
-      <Typography variant='h2'>Doctor Dashboard</Typography>
-      <Graphs notifications={props.notifications}/>
+      <Typography variant='h2'>Mark Brown</Typography>
+      <Graphs notifications={props.notifications} />
     </div>
   )
 }

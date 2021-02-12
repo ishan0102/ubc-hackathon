@@ -15,8 +15,9 @@ import { green } from '@material-ui/core/colors'
 
 import MenuDrawer from './components/MenuDrawer'
 import NotificationsMenu from './components/NotificationsMenu'
-import PatientDashboard from './pages/PatientDashboard';
-import DoctorDashboard from './pages/DoctorDashboard';
+import MirandaLee from './pages/MirandaLee';
+import MarkBrown from './pages/MarkBrown';
+import ElliotKim from './pages/ElliotKim';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -64,11 +65,14 @@ export default function App(props) {
         <Toolbar />
         <div className={classes.body}>
           <Switch>
-            <Route exact path={['/', '/patient']} render={(props) => (
-              <PatientDashboard {...props} notifications={notifications} />
+            <Route exact path={['/', '/patient1']} render={(props) => (
+              <ElliotKim {...props} notifications={notifications} />
             )} />
-            <Route exact path='/doctor' render={(props) => (
-              <DoctorDashboard {...props} notifications={notifications} />
+            <Route exact path={['/', '/patient2']} render={(props) => (
+              <MarkBrown {...props} notifications={notifications} />
+            )} />
+            <Route exact path={['/', '/patient3']} render={(props) => (
+              <MirandaLee {...props} notifications={notifications} />
             )} />
           </Switch>
         </div>

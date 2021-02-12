@@ -50,13 +50,17 @@ export default function MenuDrawer() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        <ListItem button key={'patient'} onClick={() => { window.location.assign('/patient') }}>
+        <ListItem button key={'patient'} onClick={() => { window.location.assign('/patient1') }}>
           <ListItemIcon>{<PersonIcon />}</ListItemIcon>
-          <ListItemText primary={'Patient Dashboard'} />
+          <ListItemText primary={'Elliot Kim'} />
         </ListItem>
-        <ListItem button key={'doctor'} onClick={() => { window.location.assign('/doctor') }}>
-          <ListItemIcon>{<LocalHospitalIcon />}</ListItemIcon>
-          <ListItemText primary={'Doctor Dashboard'} />
+        <ListItem button key={'patient'} onClick={() => { window.location.assign('/patient2') }}>
+          <ListItemIcon>{<PersonIcon />}</ListItemIcon>
+          <ListItemText primary={'Mark Brown'} />
+        </ListItem>
+        <ListItem button key={'patient'} onClick={() => { window.location.assign('/patient3') }}>
+          <ListItemIcon>{<PersonIcon />}</ListItemIcon>
+          <ListItemText primary={'Miranda Lee'} />
         </ListItem>
       </List>
     </div>
