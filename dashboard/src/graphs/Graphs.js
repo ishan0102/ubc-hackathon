@@ -30,7 +30,6 @@ const useStyles = makeStyles({
       transition: 'all 0.5s',
       border: '4px solid #79d1c3',
     },
-    height: '21vw'
   },
 });
 
@@ -52,33 +51,48 @@ export default function Graphs(props) {
   return (
     <div>
       <Grid container spacing={2}>
-        <Grid item xs={12} sm={6} md={3}>
-          <Card className={classes.root}>
-            <CardContent>
-              <NextAppointment />
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <Card className={classes.root}>
-            <CardContent>
-              <NextDialysis />
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <Card className={classes.root}>
-            <CardContent>
-              <Notes />
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <Card className={classes.root}>
-            <CardContent>
-              <HealthScore />
-            </CardContent>
-          </Card>
+        <Grid item xs={cardSize["xs"]} sm={cardSize["sm"]} md={6}>
+          <Grid container spacing={0}>
+            <Grid item md={6}>
+              <Card className={classes.root}>
+                <CardContent>
+                  <NutritionGraph />
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid item md={6}>
+              <Grid container spacing={0}>
+                <Grid item md={6}>
+                  <Card className={classes.root}>
+                    <CardContent>
+                      <NextAppointment />
+                    </CardContent>
+                  </Card>
+                </Grid>
+                <Grid item md={6}>
+                  <Card className={classes.root}>
+                    <CardContent>
+                      <NextDialysis />
+                    </CardContent>
+                  </Card>
+                </Grid>
+                <Grid item md={6}>
+                  <Card className={classes.root}>
+                    <CardContent>
+                      <Notes />
+                    </CardContent>
+                  </Card>
+                </Grid>
+                <Grid item md={6}>
+                  <Card className={classes.root}>
+                    <CardContent>
+                      <HealthScore />
+                    </CardContent>
+                  </Card>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
         </Grid>
 
         <Grid item xs={cardSize["xs"]} sm={cardSize["sm"]} md={cardSize["md"]}>
@@ -101,14 +115,6 @@ export default function Graphs(props) {
           <Card className={classes.root}>
             <CardContent>
               <HeartBPMGraph setOpen={setOpen} setMessage={setMessage} notifications={props.notifications} />
-            </CardContent>
-          </Card>
-        </Grid>
-
-        <Grid item xs={cardSize["xs"]} sm={cardSize["sm"]} md={cardSize["md"]}>
-          <Card className={classes.root}>
-            <CardContent>
-              <NutritionGraph />
             </CardContent>
           </Card>
         </Grid>
