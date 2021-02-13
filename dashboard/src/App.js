@@ -58,7 +58,7 @@ export default function App(props) {
             <Toolbar>
               <MenuDrawer />
               <Typography variant='h6' className={classes.title} onClick={() => { window.location.assign('/') }}>
-                Davita
+                Vitali
               </Typography>
               <NotificationsMenu notifications={notifications} setNotifications={setNotifications} />
             </Toolbar>
