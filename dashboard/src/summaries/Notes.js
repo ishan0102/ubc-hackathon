@@ -8,7 +8,7 @@ export default function Notes(props) {
         Notes
       </Typography>
       <br></br>
-      <Typography variant="body1">
+      <Typography variant="h6">
         Managing well. Try to reduce the amount of carbs in your diet.
       </Typography>
     </div>
