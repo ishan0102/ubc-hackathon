@@ -63,7 +63,7 @@ export default function BPGraph(props) {
   }, [data]);
 
   return( 
-    <Paper>
+    <div>
       <Chart
         data={data}
         height={325}
@@ -88,6 +88,6 @@ export default function BPGraph(props) {
         <Legend />
       </Chart>
       <Typography variant="h6">Time (hours)</Typography>
-    </Paper>
+    </div>
   );
 }

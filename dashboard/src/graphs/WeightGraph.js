@@ -29,7 +29,7 @@ export default function WeightGraph(props) {
   const [data, setData] = useState(generateData(1, 50, 1));
   
   return( 
-    <Paper>
+    <div>
       <Chart
         data={data}
         height={325}
@@ -45,6 +45,6 @@ export default function WeightGraph(props) {
         <ZoomAndPan />
       </Chart>
       <Typography variant="h6">Time (days)</Typography>
-    </Paper>
+    </div>
   );
 }

@@ -46,7 +46,7 @@ export default function NutritionGraph(props) {
   const [data, setData] = useState(generateData(1, 50, 1));
   
   return( 
-    <Paper>
+    <div>
       <Chart
         data={data}
         height={350}
@@ -62,6 +62,6 @@ export default function NutritionGraph(props) {
 
         <Legend />
       </Chart>
-    </Paper>
+    </div>
   );
 }

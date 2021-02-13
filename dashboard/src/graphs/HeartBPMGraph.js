@@ -51,7 +51,7 @@ export default function HeartBPMGraph(props) {
   }, [data]);
 
   return( 
-    <Paper>
+    <div>
       <Chart
         data={data}
         height={325}
@@ -65,6 +65,6 @@ export default function HeartBPMGraph(props) {
         <LineSeries valueField="value" argumentField="argument" />
       </Chart>
       <Typography variant="h6">Time (hours)</Typography>
-    </Paper>
+    </div>
   );
 }
