@@ -23,7 +23,7 @@ export default function MirandaLee(props) {
   return( 
     <div>
       <div style={{'justifyContent': 'center', 'alignItems': 'center', 'display': 'flex', 'flexDirection': 'row'}}>
-        <Typography variant='h2'>Miranda Lee</Typography>
+        <Typography style={{'margin': '0.5em'}} variant='h2'>Miranda Lee</Typography>
         <Avatar alt="Miranda Lee" src={mirandalee} className={classes.large} />
       </div>
       <Graphs notifications={props.notifications} />

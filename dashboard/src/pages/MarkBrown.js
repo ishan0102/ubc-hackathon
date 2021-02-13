@@ -23,7 +23,7 @@ export default function MarkBrown(props) {
   return( 
     <div>
       <div style={{'justifyContent': 'center', 'alignItems': 'center', 'display': 'flex', 'flexDirection': 'row'}}>
-        <Typography variant='h2'>Mark Brown</Typography>
+        <Typography style={{'margin': '0.5em'}} variant='h2'>Mark Brown</Typography>
         <Avatar alt="Mark Brown" src={markbrown} className={classes.large} />
       </div>
       <Graphs notifications={props.notifications} />

@@ -30,6 +30,18 @@ const useStyles = makeStyles({
       transition: 'all 0.5s',
       border: '4px solid #79d1c3',
     },
+    height: '40vh'
+  },
+  small: {
+    margin: '0.4rem',
+    borderRadius: '18px',
+    border: '4px solid white',
+    transition: 'all 0.5s',
+    '&:hover': {
+      transition: 'all 0.5s',
+      border: '4px solid #79d1c3',
+    },
+    height: '19vh'
   },
 });
 
@@ -63,28 +75,28 @@ export default function Graphs(props) {
             <Grid item md={6}>
               <Grid container spacing={0}>
                 <Grid item md={6}>
-                  <Card className={classes.root}>
+                  <Card className={classes.small}>
                     <CardContent>
                       <NextAppointment />
                     </CardContent>
                   </Card>
                 </Grid>
                 <Grid item md={6}>
-                  <Card className={classes.root}>
+                  <Card className={classes.small}>
                     <CardContent>
                       <NextDialysis />
                     </CardContent>
                   </Card>
                 </Grid>
                 <Grid item md={6}>
-                  <Card className={classes.root}>
+                  <Card className={classes.small}>
                     <CardContent>
                       <Notes />
                     </CardContent>
                   </Card>
                 </Grid>
                 <Grid item md={6}>
-                  <Card className={classes.root}>
+                  <Card className={classes.small}>
                     <CardContent>
                       <HealthScore />
                     </CardContent>

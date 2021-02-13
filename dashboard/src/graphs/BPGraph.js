@@ -66,7 +66,7 @@ export default function BPGraph(props) {
     <Paper>
       <Chart
         data={data}
-        height={350}
+        height={325}
       >
         <Title
           text="Blood Pressure (mmHg)"

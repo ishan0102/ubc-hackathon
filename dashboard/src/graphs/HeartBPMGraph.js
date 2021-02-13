@@ -54,7 +54,7 @@ export default function HeartBPMGraph(props) {
     <Paper>
       <Chart
         data={data}
-        height={350}
+        height={325}
       >
         <Title
           text="Heart Rate (BPM)"

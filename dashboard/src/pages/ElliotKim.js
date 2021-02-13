@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import {
   Typography,
   Button,
-  Avatar
+  Avatar,
+  Toolbar
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -23,7 +24,7 @@ export default function ElliotKim(props) {
   return( 
     <div>
       <div style={{'justifyContent': 'center', 'alignItems': 'center', 'display': 'flex', 'flexDirection': 'row'}}>
-        <Typography variant='h2'>Elliot Kim</Typography>
+        <Typography style={{'margin': '0.5em'}} variant='h2'>Elliot Kim</Typography>
         <Avatar alt="Elliot Kim" src={elliotkim} className={classes.large} />
       </div>
       <Graphs notifications={props.notifications} />

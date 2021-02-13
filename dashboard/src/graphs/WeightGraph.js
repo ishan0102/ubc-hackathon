@@ -15,7 +15,7 @@ const generateData = (start, end, step) => {
   for (let i = start; i < end; i += step) {
     var date = new Date();
     date.setDate(date.getDate() + i);
-    data.push({ value: randomPoint(50, 100), argument: date.toLocaleDateString().substring(0, date.toLocaleDateString().length - 5), date });
+    data.push({ value: randomPoint(150, 160), argument: date.toLocaleDateString().substring(0, date.toLocaleDateString().length - 5), date });
   }
 
   return data;
@@ -32,7 +32,7 @@ export default function WeightGraph(props) {
     <Paper>
       <Chart
         data={data}
-        height={350}
+        height={325}
       >
         <Title
           text="Weight (lbs)"
