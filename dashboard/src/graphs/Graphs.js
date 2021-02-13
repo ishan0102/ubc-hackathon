@@ -25,16 +25,12 @@ const useStyles = makeStyles({
     margin: '0.4rem',
     borderRadius: '18px',
     border: '4px solid white',
+    transition: 'all 0.5s',
     '&:hover': {
-      transition: 'all 0.2s ease-out',
-      border: '4px solid #00838d',
+      transition: 'all 0.5s',
+      border: '4px solid #79d1c3',
     },
-  },
-  content: {
-    maxHeight: '50%',
-    padding: '2rem',
-    display: 'flex',
-    flexDirection: 'column'
+    height: '21vw'
   },
 });
 
@@ -123,6 +119,7 @@ export default function Graphs(props) {
         open={open}
         onClose={handleClose}
         message={message}
+        style={{'backgroundColor': 'white'}}
       />
     </div>
   );
