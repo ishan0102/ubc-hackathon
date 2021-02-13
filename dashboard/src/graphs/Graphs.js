@@ -15,6 +15,11 @@ import BPGraph from '../graphs/BPGraph';
 import HeartBPMGraph from '../graphs/HeartBPMGraph';
 import NutritionGraph from '../graphs/NutritionGraph';
 
+import NextAppointment from '../summaries/NextAppointment';
+import NextDialysis from '../summaries/NextDialysis';
+import Notes from '../summaries/Notes';
+import HealthScore from '../summaries/HealthScore';
+
 const useStyles = makeStyles({
   root: {
     margin: '0.4rem',
@@ -51,6 +56,35 @@ export default function Graphs(props) {
   return (
     <div>
       <Grid container spacing={2}>
+        <Grid item xs={12} sm={6} md={3}>
+          <Card className={classes.root}>
+            <CardContent>
+              <NextAppointment />
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item xs={12} sm={6} md={3}>
+          <Card className={classes.root}>
+            <CardContent>
+              <NextDialysis />
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item xs={12} sm={6} md={3}>
+          <Card className={classes.root}>
+            <CardContent>
+              <Notes />
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item xs={12} sm={6} md={3}>
+          <Card className={classes.root}>
+            <CardContent>
+              <HealthScore />
+            </CardContent>
+          </Card>
+        </Grid>
+
         <Grid item xs={cardSize["xs"]} sm={cardSize["sm"]} md={cardSize["md"]}>
           <Card className={classes.root}>
             <CardContent>

@@ -53,28 +53,30 @@ export default function App(props) {
   return (
     <ThemeProvider theme={theme}>
       <Router>
-        <AppBar className={classes.appBar}>
-          <Toolbar>
-            <MenuDrawer />
-            <Typography variant='h6' className={classes.title} onClick={() => { window.location.assign('/') }}>
-              Davita
-            </Typography>
-            <NotificationsMenu notifications={notifications} setNotifications={setNotifications} />
-          </Toolbar>
-        </AppBar>
-        <Toolbar />
-        <div className={classes.body}>
-          <Switch>
-            <Route exact path={['/', '/patient1']} render={(props) => (
-              <ElliotKim {...props} notifications={notifications} />
-            )} />
-            <Route exact path={['/', '/patient2']} render={(props) => (
-              <MarkBrown {...props} notifications={notifications} />
-            )} />
-            <Route exact path={['/', '/patient3']} render={(props) => (
-              <MirandaLee {...props} notifications={notifications} />
-            )} />
-          </Switch>
+        <div>
+          <AppBar className={classes.appBar}>
+            <Toolbar>
+              <MenuDrawer />
+              <Typography variant='h6' className={classes.title} onClick={() => { window.location.assign('/') }}>
+                Davita
+              </Typography>
+              <NotificationsMenu notifications={notifications} setNotifications={setNotifications} />
+            </Toolbar>
+          </AppBar>
+          <Toolbar />
+          <div className={classes.body}>
+            <Switch>
+              <Route exact path={['/', '/patient1']} render={(props) => (
+                <ElliotKim {...props} notifications={notifications} />
+              )} />
+              <Route exact path={['/', '/patient2']} render={(props) => (
+                <MarkBrown {...props} notifications={notifications} />
+              )} />
+              <Route exact path={['/', '/patient3']} render={(props) => (
+                <MirandaLee {...props} notifications={notifications} />
+              )} />
+            </Switch>
+          </div>
         </div>
       </Router>
     </ThemeProvider>
