@@ -3,6 +3,9 @@
 ### Project Summary
 Vitali is a dashboard that visualizes real-time patient data into intuitive graphs and charts for both doctors and patients. Data is retrieved from the point of collection through the cloud server that automatically updates the dashboard after each collection.
 
+### Problem Statement
+We need a digital platform that collects and analyzes patient health metrics in real-time to decrease the delay between the point of data collection to the application of data.
+
 ### Features
 - Integration with IoT data collection
 - Real-time vital updates
